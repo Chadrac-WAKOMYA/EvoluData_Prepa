@@ -2,7 +2,14 @@ package my_code;
 
 public class BoatMovements {
     public static boolean canTravelTo(boolean[][] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn) {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        // throw new UnsupportedOperationException("Waiting to be implemented.");
+
+        //Est ce que la position choisie est dans le repère ?
+        if(fromColumn < 0 || fromRow < 0 || toColumn >= gameMatrix.length || toRow >= gameMatrix.length){
+            return false; 
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
@@ -15,8 +22,8 @@ public class BoatMovements {
             {false, false, false, false, false, false},
         };
         
-        System.out.println(canTravelTo(gameMatrix, 3, 2, 2, 2)); // true, Valid move
+        // System.out.println(canTravelTo(gameMatrix, 3, 2, 2, 2)); // true, Valid move
         System.out.println(canTravelTo(gameMatrix, 3, 2, 3, 4)); // false, Can't travel through land
-        System.out.println(canTravelTo(gameMatrix, 3, 2, 6, 2)); // false, Out of bounds
+        // System.out.println(canTravelTo(gameMatrix, 3, 2, 6, 2)); // false, Out of bounds
     }
 }
