@@ -9,6 +9,28 @@ public class BoatMovements {
             return false; 
         }
 
+        // Sens du déplacement devant ou derrière à gauche ou à droite
+        int g = 0, d = 0, h = 0, b = 0;
+        if (fromColumn == fromRow && fromColumn == toColumn && fromColumn == toRow){
+            return false; // Le boat ne se déplce pas
+        }else if (fromRow == toRow){
+            if (fromColumn > toColumn) {
+                g = 1;
+            }else{
+                d = 1;
+            }
+        }else if(fromColumn == toColumn){
+            if (fromRow > toRow) {
+                h = 1;
+            }else{
+                b = 1;
+            }
+        }else{
+            return false; // Déplacement non pris en charge
+        }
+
+
+        // Valider les déplacements
         return true;
     }
 
@@ -22,8 +44,8 @@ public class BoatMovements {
             {false, false, false, false, false, false},
         };
         
-        // System.out.println(canTravelTo(gameMatrix, 3, 2, 2, 2)); // true, Valid move
+        System.out.println(canTravelTo(gameMatrix, 3, 2, 2, 2)); // true, Valid move
         System.out.println(canTravelTo(gameMatrix, 3, 2, 3, 4)); // false, Can't travel through land
-        // System.out.println(canTravelTo(gameMatrix, 3, 2, 6, 2)); // false, Out of bounds
+        System.out.println(canTravelTo(gameMatrix, 3, 2, 6, 2)); // false, Out of bounds
     }
 }
