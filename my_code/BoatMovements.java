@@ -11,6 +11,7 @@ public class BoatMovements {
 
         // Sens du déplacement devant ou derrière à gauche ou à droite
         int g = 0, d = 0, h = 0, b = 0;
+
         if (fromColumn == fromRow && fromColumn == toColumn && fromColumn == toRow){
             return false; // Le boat ne se déplce pas
         }else if (fromRow == toRow){
@@ -31,6 +32,17 @@ public class BoatMovements {
 
 
         // Valider les déplacements
+        if(g == 1){
+            for(int i = fromColumn -1; i >= toColumn; i-- ){
+                return gameMatrix[fromRow][i];
+            }
+        }else if(d == 1){
+
+        }else if(h == 1){
+
+        }else if(b == 1){
+
+        }
         return true;
     }
 
