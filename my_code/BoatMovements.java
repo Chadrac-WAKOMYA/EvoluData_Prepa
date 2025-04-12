@@ -32,7 +32,7 @@ public class BoatMovements {
 
 
         // Valider les déplacements
-        if(g == 1){
+        if(g == 1){ // Le déplacement à gauche
             boolean returnValue = true;
             for(int i = fromColumn -1; i >= toColumn; i-- ){
                 if(!gameMatrix[fromRow][i]) {
@@ -41,12 +41,12 @@ public class BoatMovements {
                 }
                 return returnValue;
             }
-        }else if(d == 1){
+        }else if(d == 1){ // Le déplaement à droite
             boolean returnValue = true;
-            for(int i = fromColumn -1; i >= toColumn; i-- ){
+            for(int i = fromColumn +1; i <= toColumn; i++ ){
                 if(!gameMatrix[fromRow][i]) {
                     returnValue = false;
-                    i = toColumn - 1;
+                    i = toColumn + 1;
                 }
                 return returnValue;
             }
