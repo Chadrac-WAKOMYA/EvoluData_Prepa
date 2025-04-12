@@ -4,6 +4,8 @@ public class BoatMovements {
     public static boolean canTravelTo(boolean[][] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn) {
         // throw new UnsupportedOperationException("Waiting to be implemented.");
 
+        boolean returnValue = true;
+
         //Est ce que la position choisie est dans le repère ?
         if(fromColumn < 0 || fromRow < 0 || toColumn >= gameMatrix.length || toRow >= gameMatrix.length){
             return false; 
@@ -33,7 +35,7 @@ public class BoatMovements {
 
         // Valider les déplacements
         if(g == 1){ // Le déplacement à gauche
-            boolean returnValue = true;
+            
             for(int i = fromColumn -1; i >= toColumn; i-- ){
                 if(!gameMatrix[fromRow][i]) {
                     returnValue = false;
@@ -42,7 +44,7 @@ public class BoatMovements {
             }
             return returnValue;
         }else if(d == 1){ // Le déplaement à droite
-            boolean returnValue = true;
+           
             for(int i = fromColumn +1; i <= toColumn; i++ ){
                 if(!gameMatrix[fromRow][i]) {
                     returnValue = false;
@@ -51,7 +53,7 @@ public class BoatMovements {
             }
             return returnValue;
         }else if(h == 1){ // Le déplacement vers le haut
-            boolean returnValue = true;
+           
             for(int i = fromRow -1; i <= toRow; i-- ){
                 if(!gameMatrix[i][fromColumn]) {
                     returnValue = false;
@@ -60,7 +62,7 @@ public class BoatMovements {
             }
             return returnValue;
         }else if(b == 1){
-            boolean returnValue = true;
+           
             for(int i = fromRow + 1; i <= toRow; i++ ){
                 if(!gameMatrix[i][fromColumn]) {
                     returnValue = false;
@@ -69,7 +71,7 @@ public class BoatMovements {
             }
             return returnValue;
         }
-        return true;
+        return returnValue;
     }
 
     public static void main(String[] args) {
