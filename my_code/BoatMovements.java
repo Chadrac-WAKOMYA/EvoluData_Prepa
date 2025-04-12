@@ -55,12 +55,19 @@ public class BoatMovements {
             for(int i = fromRow -1; i <= toRow; i-- ){
                 if(!gameMatrix[i][fromColumn]) {
                     returnValue = false;
-                    i = toRow + 1;
+                    i = toRow - 1;
                 }
             }
             return returnValue;
         }else if(b == 1){
-
+            boolean returnValue = true;
+            for(int i = fromRow + 1; i <= toRow; i++ ){
+                if(!gameMatrix[i][fromColumn]) {
+                    returnValue = false;
+                    i = toRow + 1;
+                }
+            }
+            return returnValue;
         }
         return true;
     }
