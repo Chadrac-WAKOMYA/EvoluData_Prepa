@@ -39,19 +39,26 @@ public class BoatMovements {
                     returnValue = false;
                     i = toColumn - 1;
                 }
-                return returnValue;
             }
+            return returnValue;
         }else if(d == 1){ // Le déplaement à droite
             boolean returnValue = true;
             for(int i = fromColumn +1; i <= toColumn; i++ ){
                 if(!gameMatrix[fromRow][i]) {
                     returnValue = false;
                     i = toColumn + 1;
-                }
-                return returnValue;
+                }                
             }
-        }else if(h == 1){
-            
+            return returnValue;
+        }else if(h == 1){ // Le déplacement vers le haut
+            boolean returnValue = true;
+            for(int i = fromRow -1; i <= toRow; i-- ){
+                if(!gameMatrix[i][fromColumn]) {
+                    returnValue = false;
+                    i = toRow + 1;
+                }
+            }
+            return returnValue;
         }else if(b == 1){
 
         }
