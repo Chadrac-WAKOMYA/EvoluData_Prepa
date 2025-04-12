@@ -34,6 +34,7 @@ public class BoatMovements {
         // Valider les déplacements
         if(g == 1){
             for(int i = fromColumn -1; i >= toColumn; i-- ){
+                if(gameMatrix[fromRow][i]) return false;
                 return gameMatrix[fromRow][i];
             }
         }else if(d == 1){
