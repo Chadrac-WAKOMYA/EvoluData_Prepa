@@ -33,12 +33,23 @@ public class BoatMovements {
 
         // Valider les déplacements
         if(g == 1){
+            boolean returnValue = true;
             for(int i = fromColumn -1; i >= toColumn; i-- ){
-                if(gameMatrix[fromRow][i]) return false;
-                return gameMatrix[fromRow][i];
+                if(!gameMatrix[fromRow][i]) {
+                    returnValue = false;
+                    i = toColumn - 1;
+                }
+                return returnValue;
             }
         }else if(d == 1){
-
+            boolean returnValue = true;
+            for(int i = fromColumn -1; i >= toColumn; i-- ){
+                if(!gameMatrix[fromRow][i]) {
+                    returnValue = false;
+                    i = toColumn - 1;
+                }
+                return returnValue;
+            }
         }else if(h == 1){
 
         }else if(b == 1){
