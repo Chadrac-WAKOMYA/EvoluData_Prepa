@@ -39,8 +39,9 @@ public class BoatMovements {
             for(int i = fromColumn -1; i >= toColumn; i-- ){
                 if(!gameMatrix[fromRow][i]) {
                     returnValue = false;
-                    i = toColumn - 1;
+                    // i = toColumn - 1;
                 }
+                break;
             }
             return returnValue;
         }else if(d == 1){ // Le déplaement à droite
@@ -48,8 +49,9 @@ public class BoatMovements {
             for(int i = fromColumn +1; i <= toColumn; i++ ){
                 if(!gameMatrix[fromRow][i]) {
                     returnValue = false;
-                    i = toColumn + 1;
-                }                
+                    // i = toColumn + 1;
+                }    
+                break;            
             }
             return returnValue;
         }else if(h == 1){ // Le déplacement vers le haut
@@ -57,8 +59,9 @@ public class BoatMovements {
             for(int i = fromRow -1; i <= toRow; i-- ){
                 if(!gameMatrix[i][fromColumn]) {
                     returnValue = false;
-                    i = toRow - 1;
+                    // i = toRow - 1;
                 }
+                break;
             }
             return returnValue;
         }else if(b == 1){
@@ -66,8 +69,9 @@ public class BoatMovements {
             for(int i = fromRow + 1; i <= toRow; i++ ){
                 if(!gameMatrix[i][fromColumn]) {
                     returnValue = false;
-                    i = toRow + 1;
+                    // i = toRow + 1;
                 }
+                break;
             }
             return returnValue;
         }
