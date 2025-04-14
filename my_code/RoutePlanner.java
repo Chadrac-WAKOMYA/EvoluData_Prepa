@@ -17,6 +17,12 @@ public class RoutePlanner {
         if(!mapMatrix[fromRow][fromColumn] || !mapMatrix[toRow][toColumn]){
             return false; // Départ ou destination impossible
         }
+
+
+        // Tester le changement d'itinéraire
+        if(fromRow == toRow && fromColumn == toColumn){
+            return false; // Il y a pas changement d'itinéraire
+        }
         return  false;
     }
         
