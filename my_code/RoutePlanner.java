@@ -1,9 +1,17 @@
 package my_code;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
 public class RoutePlanner {
     public static boolean routeExists(int fromRow, int fromColumn, int toRow, int toColumn,
                                       boolean[][] mapMatrix) {
-        // throw new UnsupportedOperationException("Waiting to be implemented.");
+
         // Tester si le départ et l'arrivé sont dans mapMatrix 
         if(fromRow < 0 || fromRow >= mapMatrix.length ||
         fromColumn < 0 || fromColumn >= mapMatrix[0].length ||
@@ -23,6 +31,14 @@ public class RoutePlanner {
         if(fromRow == toRow && fromColumn == toColumn){
             return false; // Il y a pas changement d'itinéraire
         }
+
+        // Déclarations de variables importantes 
+        Set <String> routeDejaParcourue = new HashSet<>(); // Variale qui contenir toutes les routes déjà vérifiées
+        List <String> nouveauaDepart  = new ArrayList<>(); // Variable qui contenir les nouveaux départs
+        Queue<Map> possiblesRoutesAVerifier = new LinkedList<>(); // Les possiles routes à vérifier
+
+
+
         return  false;
     }
         
