@@ -35,12 +35,16 @@ public class RoutePlanner {
         // Déclarations de variables importantes 
         Set <String> routeDejaParcourue = new HashSet<>(); // Variale qui contenir toutes les routes déjà vérifiées
         List <String> nouveauaDepart  = new ArrayList<>(); // Variable qui contenir les nouveaux départs
-        Queue<Map<String, String>> possiblesRoutesAVerifier = new LinkedList<>(); // Les possiles routes à vérifier
+        Queue<Map<String, String>> possiblesRoutesAVerifier = new LinkedList<>(); // Variable possibles routes à vérifier
 
         // La boucle de recherche de nouvelles possibilités
-        while (!possiblesRoutesAVerifier.isEmpty()) {
+        for(String routeChoisie :  nouveauaDepart){
+            while (!possiblesRoutesAVerifier.isEmpty()) {
             
+            }
         }
+        
+        
         return  false;
     }
         
