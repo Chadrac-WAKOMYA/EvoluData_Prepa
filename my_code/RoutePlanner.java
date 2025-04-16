@@ -43,6 +43,7 @@ public class RoutePlanner {
 
         // La boucle de recherche de nouvelles possibilités
         for(String routeChoisie :  nouveauaDepart){
+            
             if(routeDejaParcourue.contains(routeAExplorer))
             while (!possiblesRoutesAVerifier.isEmpty()) {
             
