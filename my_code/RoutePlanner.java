@@ -42,9 +42,7 @@ public class RoutePlanner {
         Map <String, Map<String, String>> routeAExplorer = new HashMap<>(); // La variable qui va prendre les prochaines routes à explorer
 
         // La boucle de recherche de nouvelles possibilités
-        for(String routeChoisie :  nouveauaDepart){
-            
-            if(routeDejaParcourue.contains(routeAExplorer))
+        for(String routeChoisie :  nouveauaDepart){          
             while (!possiblesRoutesAVerifier.isEmpty()) {
             
             }
