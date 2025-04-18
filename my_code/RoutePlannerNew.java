@@ -34,7 +34,7 @@ public class RoutePlannerNew {
         }
 
         // Variables importantes
-        List <String> cheminParcourus = new ArrayList<>();
+        Set <String> cheminParcourus = new HashSet<>();
         List <String> futurCheminAExplorer = new ArrayList<>();
 
         
