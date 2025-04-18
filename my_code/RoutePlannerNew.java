@@ -33,7 +33,8 @@ public class RoutePlannerNew {
             return false; // Il y a pas changement d'itinéraire
         }
 
-        
+        // Variables importantes
+        List <String> cheminParcourus = new ArrayList<>();
         
         return  false;
     }
