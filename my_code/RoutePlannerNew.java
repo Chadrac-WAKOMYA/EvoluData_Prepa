@@ -35,6 +35,8 @@ public class RoutePlannerNew {
 
         // Variables importantes
         List <String> cheminParcourus = new ArrayList<>();
+        List <String> futurCheminAExplorer = new ArrayList<>();
+
         
         return  false;
     }
