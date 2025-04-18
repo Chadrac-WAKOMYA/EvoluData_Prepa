@@ -12,6 +12,9 @@ import java.util.Set;
 public class RoutePlannerNew {
     public static boolean routeExists(int fromRow, int fromColumn, int toRow, int toColumn,
                                       boolean[][] mapMatrix) {
+        // Variables importantes
+        Set <String> cheminParcourus = new HashSet<>();
+        List <String> futurCheminAExplorer = new ArrayList<>();
 
         // Tester si le départ et l'arrivé sont dans mapMatrix 
         if(fromRow < 0 || fromRow >= mapMatrix.length ||
@@ -30,12 +33,12 @@ public class RoutePlannerNew {
 
         // Tester le changement d'itinéraire
         if(fromRow == toRow && fromColumn == toColumn){
+            futurCheminAExplorer.add("mapMatrix[fromRow][fromColumn]");
             return false; // Il y a pas changement d'itinéraire
         }
 
-        // Variables importantes
-        Set <String> cheminParcourus = new HashSet<>();
-        List <String> futurCheminAExplorer = new ArrayList<>();
+        
+
 
         
         return  false;
