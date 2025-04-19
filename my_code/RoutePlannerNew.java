@@ -75,6 +75,15 @@ public class RoutePlannerNew {
                             cheminParcourus.add(new int[]{row + 1, column});
                         }
                     }
+
+                    // Test à gauche
+                    if (column - 1 >= 0 ) {                        
+                        if (mapMatrix[row ][column - 1]) {
+                            futurCheminAExplorer.add(new int[]{row , column - 1});
+                        }else{
+                            cheminParcourus.add(new int[]{row, column - 1});
+                        }
+                    }
                 }
             }
         }
