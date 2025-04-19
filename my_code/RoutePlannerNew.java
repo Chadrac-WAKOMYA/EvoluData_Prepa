@@ -37,9 +37,14 @@ public class RoutePlannerNew {
             return false; // Il y a pas changement d'itinéraire
         }
 
-        
-
-
+        // Exploration de chemins praticables
+        while (futurCheminAExplorer.isEmpty()) {
+            if(!futurCheminAExplorer.containsKey("mapMatrix[toRow][toColumn]")){
+                
+            }else{
+                return true;
+            }
+        }
         
         return  false;
     }
