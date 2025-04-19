@@ -35,6 +35,7 @@ public class RoutePlannerNew {
         // Tester le changement d'itinéraire
         if(fromRow == toRow && fromColumn == toColumn){
             // futurCheminAExplorer.put("mapMatrix[fromRow][fromColumn]",new int[]{fromRow,fromColumn});
+            futurCheminAExplorer.add(new int[]{fromRow, fromColumn});
             return false; // Il y a pas changement d'itinéraire
         }
 
