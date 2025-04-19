@@ -1,25 +1,25 @@
-package my_code;
+package poe_optimisation;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class TrainComposition {
-    private Deque <Integer> waggonComposite = new ArrayDeque<>();
+    private Deque<Integer> waggonComposite = new ArrayDeque<>();
 
     public void attachWagonFromLeft(int wagonId) {
-        this.waggonComposite.addFirst(wagonId);
+        this.waggonComposite.addFirst(wagonId); // Ajout à gauche
     }
 
-    public void attachWagonFromRight(int wagonId) {        
-        this.waggonComposite.addLast(wagonId);
+    public void attachWagonFromRight(int wagonId) {
+        this.waggonComposite.addLast(wagonId); // Ajout à droite
     }
 
     public int detachWagonFromLeft() {
-        return this.waggonComposite.removeFirst();
+        return this.waggonComposite.removeFirst(); // Détachement de gauche
     }
 
     public int detachWagonFromRight() {
-        return this.waggonComposite.removeLast();
+        return this.waggonComposite.removeLast(); // Détachement de droite
     }
 
     public static void main(String[] args) {
