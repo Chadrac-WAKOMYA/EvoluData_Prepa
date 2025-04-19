@@ -15,11 +15,11 @@ public class TrainComposition {
     }
 
     public int detachWagonFromLeft() {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        return this.waggonComposite.removeLast();
     }
 
     public int detachWagonFromRight() {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        return this.waggonComposite.removeFirst();
     }
 
     public static void main(String[] args) {
