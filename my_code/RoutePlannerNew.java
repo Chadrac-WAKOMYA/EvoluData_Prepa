@@ -40,7 +40,21 @@ public class RoutePlannerNew {
         // Exploration de chemins praticables
         while (futurCheminAExplorer.isEmpty()) {
             if(!futurCheminAExplorer.containsKey("mapMatrix[toRow][toColumn]")){
+                Map <String, int[]> futurCheminAExplorerTmp = futurCheminAExplorer;
+                futurCheminAExplorer.clear();
 
+                // Je récupère les éléments de ma collection futurCheminAExplorerTmp
+                for (Map.Entry<String, int[]> entry : futurCheminAExplorerTmp.entrySet()) {
+                    String key = entry.getKey();
+                    int row =  entry.getValue()[0];
+                    int column =  entry.getValue()[0];
+
+                    // Vérification case à gauche 
+                    if(row - 1 > 0){
+                        if(mapMatrix[row - 1][column]){}
+                    }
+                }
+        
             }else{
                 return true;
             }
