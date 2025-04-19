@@ -84,6 +84,15 @@ public class RoutePlannerNew {
                             cheminParcourus.add(new int[]{row, column - 1});
                         }
                     }
+
+                    // Test à droite
+                    if (column + 1 < mapMatrix[row].length ) {                        
+                        if (mapMatrix[row ][column + 1]) {
+                            futurCheminAExplorer.add(new int[]{row , column + 1});
+                        }else{
+                            cheminParcourus.add(new int[]{row, column + 1});
+                        }
+                    }
                 }
             }
         }
