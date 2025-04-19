@@ -13,7 +13,7 @@ public class RoutePlannerNew {
     public static boolean routeExists(int fromRow, int fromColumn, int toRow, int toColumn,
                                       boolean[][] mapMatrix) {
         // Variables importantes
-        Set <Boolean> cheminParcourus = new HashSet<>();
+        Set <int[]> cheminParcourus = new HashSet<>();
         Queue <int []> futurCheminAExplorer = new LinkedList<>();
         // Map <String, int[]> futurCheminAExplorer = new HashMap<>();
 
@@ -41,7 +41,18 @@ public class RoutePlannerNew {
 
         // Exploration de chemins praticables
         while (futurCheminAExplorer.isEmpty()) {
-            if(futurCheminAExplorer.contains(new int[]{toRow, toColumn}));
+            if(futurCheminAExplorer.contains(new int[]{toRow, toColumn})){
+                return true;
+            }else{
+                // Récupération de chemin un à un 
+                int [] cheminTmp = futurCheminAExplorer.poll();
+                int row = cheminTmp [0];
+                int column = cheminTmp [1];
+
+                // Teste de chemin praticables
+                // Est ce que le chemin est déjà parcouru ?
+                if(cheminParcourus.contains(futurCheminAExplorer))
+            }
         }
 
         // // Exploration de chemins praticables
