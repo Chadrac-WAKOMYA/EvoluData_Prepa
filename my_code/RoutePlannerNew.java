@@ -56,19 +56,23 @@ public class RoutePlannerNew {
                     int row = cheminTmp [0];
                     int column = cheminTmp [1];
                     
-                    // Test à gauche
+                    // Test en haut
                     if (row - 1 >= 0 ) {
-                        cheminParcourus.add(new int[]{row - 1, column});
+                        
                         if (mapMatrix[row - 1][column]) {
                             futurCheminAExplorer.add(new int[]{row - 1, column});
+                        }else{
+                            cheminParcourus.add(new int[]{row - 1, column});
                         }
                     }
 
-                    // Test à droite
-                    if (row + 1 < mapMatrix ) {
-                        cheminParcourus.add(new int[]{row - 1, column});
-                        if (mapMatrix[row - 1][column]) {
-                            futurCheminAExplorer.add(new int[]{row - 1, column});
+                    // Test en bas
+                    if (row + 1 < mapMatrix.length ) {
+                        
+                        if (mapMatrix[row + 1][column]) {
+                            futurCheminAExplorer.add(new int[]{row + 1, column});
+                        }else{
+                            cheminParcourus.add(new int[]{row + 1, column});
                         }
                     }
                 }
