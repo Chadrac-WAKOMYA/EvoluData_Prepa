@@ -55,6 +55,13 @@ public class RoutePlannerNew {
                     cheminParcourus.add(cheminTmp);
                     int row = cheminTmp [0];
                     int column = cheminTmp [1];
+                    
+                    // Test à gauche
+                    if (row - 1 >= 0 ) {
+                        cheminParcourus.add(new int[]{row - 1, column});
+                        if (mapMatrix[row - 1][column]) {
+                            futurCheminAExplorer.add(new int[]{row - 1, column});
+                        }}
                 }
             }
         }
