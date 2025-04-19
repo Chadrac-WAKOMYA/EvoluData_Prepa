@@ -33,11 +33,12 @@ public class RoutePlannerNew {
 
 
         // Tester le changement d'itinéraire
-        if(fromRow == toRow && fromColumn == toColumn){
-            // futurCheminAExplorer.put("mapMatrix[fromRow][fromColumn]",new int[]{fromRow,fromColumn});
-            futurCheminAExplorer.add(new int[]{fromRow, fromColumn});
+        if(fromRow == toRow && fromColumn == toColumn){            
             return false; // Il y a pas changement d'itinéraire
         }
+
+        // Initialisation de la variable importante futurCheminAExplorer
+        futurCheminAExplorer.add(new int[]{fromRow, fromColumn});
 
         // Exploration de chemins praticables
         while (futurCheminAExplorer.isEmpty()) {
@@ -96,29 +97,6 @@ public class RoutePlannerNew {
                 }
             }
         }
-
-        // // Exploration de chemins praticables
-        // while (futurCheminAExplorer.isEmpty()) {
-        //     if(!futurCheminAExplorer.containsKey("mapMatrix[toRow][toColumn]")){
-        //         Map <String, int[]> futurCheminAExplorerTmp = futurCheminAExplorer;
-        //         futurCheminAExplorer.clear();
-
-        //         // Je récupère les éléments de ma collection futurCheminAExplorerTmp
-        //         for (Map.Entry<String, int[]> entry : futurCheminAExplorerTmp.entrySet()) {
-        //             String key = entry.getKey();
-        //             int row =  entry.getValue()[0];
-        //             int column =  entry.getValue()[0];
-
-        //             // Vérification case à gauche 
-        //             if(row - 1 > 0){
-        //                 if(mapMatrix[row - 1][column]){}
-        //             }
-        //         }
-        
-        //     }else{
-        //         return true;
-        //     }
-        // }
         
         return  false;
     }
