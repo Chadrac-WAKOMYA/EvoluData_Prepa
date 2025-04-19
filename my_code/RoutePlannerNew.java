@@ -14,7 +14,7 @@ public class RoutePlannerNew {
                                       boolean[][] mapMatrix) {
         // Variables importantes
         Set <Boolean> cheminParcourus = new HashSet<>();
-        List <Boolean> futurCheminAExplorer = new ArrayList<>();
+        Map <String, Boolean> futurCheminAExplorer = new HashMap<>();
 
         // Tester si le départ et l'arrivé sont dans mapMatrix 
         if(fromRow < 0 || fromRow >= mapMatrix.length ||
@@ -33,7 +33,7 @@ public class RoutePlannerNew {
 
         // Tester le changement d'itinéraire
         if(fromRow == toRow && fromColumn == toColumn){
-            futurCheminAExplorer.add(mapMatrix[fromRow][fromColumn]);
+            futurCheminAExplorer.put("mapMatrix[fromRow][fromColumn]",mapMatrix[fromRow][fromColumn]);
             return false; // Il y a pas changement d'itinéraire
         }
 
