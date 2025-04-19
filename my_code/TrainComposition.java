@@ -5,13 +5,13 @@ import java.util.Deque;
 
 public class TrainComposition {
     private Deque <Integer> waggonComposite = new ArrayDeque<>();
-    
+
     public void attachWagonFromLeft(int wagonId) {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        this.waggonComposite.addLast(wagonId);
     }
 
     public void attachWagonFromRight(int wagonId) {
-        throw new UnsupportedOperationException("Waiting to be implemented.");
+        this.waggonComposite.addFirst(wagonId);
     }
 
     public int detachWagonFromLeft() {
