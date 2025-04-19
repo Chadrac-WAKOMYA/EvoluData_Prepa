@@ -14,6 +14,7 @@ public class RoutePlannerNew {
                                       boolean[][] mapMatrix) {
         // Variables importantes
         Set <Boolean> cheminParcourus = new HashSet<>();
+        Queue <int []> futurCheminAExplorer = new LinkedList<>();
         // Map <String, int[]> futurCheminAExplorer = new HashMap<>();
 
         // Tester si le départ et l'arrivé sont dans mapMatrix 
