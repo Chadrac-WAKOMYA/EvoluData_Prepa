@@ -46,12 +46,16 @@ public class RoutePlannerNew {
             }else{
                 // Récupération de chemin un à un 
                 int [] cheminTmp = futurCheminAExplorer.poll();
-                int row = cheminTmp [0];
-                int column = cheminTmp [1];
+                
 
                 // Teste de chemin praticables
                 // Est ce que le chemin est déjà parcouru ?
-                if(cheminParcourus.contains(futurCheminAExplorer))
+                if(!cheminParcourus.contains(cheminTmp)){
+                    // Ajout de cheminTmp dans chemin parcouru
+                    cheminParcourus.add(cheminTmp);
+                    int row = cheminTmp [0];
+                    int column = cheminTmp [1];
+                }
             }
         }
 
