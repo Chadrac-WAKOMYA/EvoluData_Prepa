@@ -1,11 +1,7 @@
 package my_code;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
@@ -41,7 +37,7 @@ public class RoutePlannerNew {
         futurCheminAExplorer.add(new int[]{fromRow, fromColumn});
 
         // Exploration de chemins praticables
-        while (futurCheminAExplorer.isEmpty()) {
+        while (!futurCheminAExplorer.isEmpty()) {
             if(futurCheminAExplorer.contains(new int[]{toRow, toColumn})){
                 return true;
             }else{
@@ -58,8 +54,7 @@ public class RoutePlannerNew {
                     int column = cheminTmp [1];
                     
                     // Test en haut
-                    if (row - 1 >= 0 ) {
-                        
+                    if (row - 1 >= 0 ) {                        
                         if (mapMatrix[row - 1][column]) {
                             futurCheminAExplorer.add(new int[]{row - 1, column});
                         }else{
