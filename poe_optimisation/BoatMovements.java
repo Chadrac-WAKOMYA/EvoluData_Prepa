@@ -3,11 +3,11 @@ package poe_optimisation;
 public class BoatMovements {
     public static boolean canTravelTo(boolean[][] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn) {
         // Vérifier si les positions sont dans les limites de la matrice
-        if (fromRow < 0 || fromRow >= gameMatrix.length || 
-            fromColumn < 0 || fromColumn >= gameMatrix[0].length ||
-            toRow < 0 || toRow >= gameMatrix.length || 
-            toColumn < 0 || toColumn >= gameMatrix[0].length) {
-            return false; 
+        if (fromRow < 0 || fromRow >= gameMatrix.length ||
+                fromColumn < 0 || fromColumn >= gameMatrix[fromRow].length ||
+                toRow < 0 || toRow >= gameMatrix.length ||
+                toColumn < 0 || toColumn >= gameMatrix[toRow].length) {
+            return false;
         }
 
         // Vérifier si le bateau se déplace
@@ -70,14 +70,14 @@ public class BoatMovements {
 
     public static void main(String[] args) {
         boolean[][] gameMatrix = {
-            {false, true,  true,  false, false, false},
-            {true,  true,  true,  false, false, false},
-            {true,  true,  true,  true,  true,  true},
-            {false, true,  true,  false, true,  true},
-            {false, true,  true,  true,  false, true},
-            {false, false, false, false, false, false},
+                { false, true, true, false, false, false },
+                { true, true, true, false, false, false },
+                { true, true, true, true, true, true },
+                { false, true, true, false, true, true },
+                { false, true, true, true, false, true },
+                { false, false, false, false, false, false },
         };
-        
+
         System.out.println(canTravelTo(gameMatrix, 3, 2, 2, 2)); // true, Valid move
         System.out.println(canTravelTo(gameMatrix, 3, 2, 3, 4)); // false, Can't travel through land
         System.out.println(canTravelTo(gameMatrix, 3, 2, 6, 2)); // false, Out of bounds

@@ -2,94 +2,57 @@ package my_code;
 
 public class BoatMovements {
     public static boolean canTravelTo(boolean[][] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn) {
-        // throw new UnsupportedOperationException("Waiting to be implemented.");
-
-        boolean returnValue = true;
-
-        //Est ce que la position choisie est dans le repère ?
-        if(fromColumn < 0 || fromRow < 0 || toColumn >= gameMatrix.length || toRow >= gameMatrix.length){
-            return false; 
+        // Vérifier si les positions sont dans les limites de la matrice
+        if (fromRow < 0 || fromRow >= gameMatrix.length ||
+                fromColumn < 0 || fromColumn >= gameMatrix[0].length || // Correction ici
+                toRow < 0 || toRow >= gameMatrix.length ||
+                toColumn < 0 || toColumn >= gameMatrix[0].length) { // Correction ici
+            return false; // Coordonnées hors limites
         }
 
-        // Sens du déplacement devant ou derrière à gauche ou à droite
-        int g = 0, d = 0, h = 0, b = 0;
-
-        if (fromColumn == fromRow && fromColumn == toColumn && fromColumn == toRow){
-            return false; // Le boat ne se déplce pas
-        }else if (fromRow == toRow){
-            if (fromColumn > toColumn) {
-                g = 1;
-            }else{
-                d = 1;
-            }
-        }else if(fromColumn == toColumn){
-            if (fromRow > toRow) {
-                h = 1;
-            }else{
-                b = 1;
-            }
-        }else{
-            return false; // Déplacement non pris en charge
+        // Vérifier si le bateau se déplace à une position différente
+        if (fromRow == toRow && fromColumn == toColumn) {
+            return false; // Le bateau ne se déplace pas
         }
 
-
-        // Valider les déplacements
-        if(g == 1){ // Le déplacement à gauche
-            
-            for(int i = fromColumn -1; i >= toColumn; i-- ){
-                if(!gameMatrix[fromRow][i]) {
-                    returnValue = false;
-                    // i = toColumn - 1;
+        // Déterminer la direction du mouvement
+        if (fromRow == toRow) { // Mouvement horizontal
+            int startCol = Math.min(fromColumn, toColumn);
+            int endCol = Math.max(fromColumn, toColumn);
+            for (int i = startCol; i <= endCol; i++) {
+                if (!gameMatrix[fromRow][i]) {
+                    return false; // Ne peut pas traverser la terre
                 }
-                break;
             }
-            return returnValue;
-        }else if(d == 1){ // Le déplaement à droite
-           
-            for(int i = fromColumn +1; i <= toColumn; i++ ){
-                if(!gameMatrix[fromRow][i]) {
-                    returnValue = false;
-                    // i = toColumn + 1;
-                }    
-                break;            
-            }
-            return returnValue;
-        }else if(h == 1){ // Le déplacement vers le haut
-           
-            for(int i = fromRow -1; i <= toRow; i-- ){
-                if(!gameMatrix[i][fromColumn]) {
-                    returnValue = false;
-                    // i = toRow - 1;
+            return true;
+        } else if (fromColumn == toColumn) { // Mouvement vertical
+            int startRow = Math.min(fromRow, toRow);
+            int endRow = Math.max(fromRow, toRow);
+            for (int i = startRow; i <= endRow; i++) {
+                if (!gameMatrix[i][fromColumn]) {
+                    return false; // Ne peut pas traverser la terre
                 }
-                break;
             }
-            return returnValue;
-        }else if(b == 1){
-           
-            for(int i = fromRow + 1; i <= toRow; i++ ){
-                if(!gameMatrix[i][fromColumn]) {
-                    returnValue = false;
-                    // i = toRow + 1;
-                }
-                break;
-            }
-            return returnValue;
+            return true;
         }
-        return returnValue;
+
+        return false; // Déplacement non pris en charge
     }
 
     public static void main(String[] args) {
         boolean[][] gameMatrix = {
-            {false, true,  true,  false, false, false},
-            {true,  true,  true,  false, false, false},
-            {true,  true,  true,  true,  true,  true},
-            {false, true,  true,  false, true,  true},
-            {false, true,  true,  true,  false, true},
-            {false, false, false, false, false, false},
+                { false, true, true, false, false, false },
+                { true, true, true, false, false, false },
+                { true, true, true, true, true, true },
+                { false, true, true, false, true, true },
+                { false, true, true, true, false, true },
+                { false, false, false, false, false, false },
         };
-        
+
+        // Tests
         System.out.println(canTravelTo(gameMatrix, 3, 2, 2, 2)); // true, Valid move
         System.out.println(canTravelTo(gameMatrix, 3, 2, 3, 4)); // false, Can't travel through land
         System.out.println(canTravelTo(gameMatrix, 3, 2, 6, 2)); // false, Out of bounds
+        System.out.println(canTravelTo(gameMatrix, 3, 2, 3, 2)); // false, No movement
     }
 }
