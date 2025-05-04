@@ -2,82 +2,71 @@ package my_code;
 
 public class BoatMovements {
     public static boolean canTravelTo(boolean[][] gameMatrix, int fromRow, int fromColumn, int toRow, int toColumn) {
-        // throw new UnsupportedOperationException("Waiting to be implemented.");
-
-        boolean returnValue = true;
-
-        //Est ce que la position choisie est dans le repère ?
-        if(fromColumn < 0 || fromRow < 0 || toColumn >= gameMatrix.length || toRow >= gameMatrix.length){
-            return false; 
+        // Vérifier si les positions sont dans les limites de la matrice
+        if (fromRow < 0 || fromRow >= gameMatrix.length ||
+                fromColumn < 0 || fromColumn >= gameMatrix[fromRow].length ||
+                toRow < 0 || toRow >= gameMatrix.length ||
+                toColumn < 0 || toColumn >= gameMatrix[toRow].length) {
+            return false;
         }
 
-        // Sens du déplacement devant ou derrière à gauche ou à droite
+        // Vérifier si le bateau se déplace
+        if (fromRow == toRow && fromColumn == toColumn) {
+            return false; // Le bateau ne se déplace pas
+        }
+
+        // Sens du déplacement
         int g = 0, d = 0, h = 0, b = 0;
 
-        if (fromColumn == fromRow && fromColumn == toColumn && fromColumn == toRow){
-            return false; // Le boat ne se déplce pas
-        }else if (fromRow == toRow){
+        if (fromRow == toRow) {
             if (fromColumn > toColumn) {
-                g = 1;
-            }else{
-                d = 1;
+                g = 1; // Déplacement à gauche
+            } else {
+                d = 1; // Déplacement à droite
             }
-        }else if(fromColumn == toColumn){
+        } else if (fromColumn == toColumn) {
             if (fromRow > toRow) {
-                h = 1;
-            }else{
-                b = 1;
+                h = 1; // Déplacement vers le haut
+            } else {
+                b = 1; // Déplacement vers le bas
             }
-        }else{
+        } else {
             return false; // Déplacement non pris en charge
         }
 
-
         // Valider les déplacements
-        if(g == 1){ // Le déplacement à gauche
-            
-            for(int i = fromColumn -1; i >= toColumn; i-- ){
-                if(!gameMatrix[fromRow][i]) {
-                    returnValue = false;
-                    // i = toColumn - 1;
+        if (g == 1) { // Déplacement à gauche
+            for (int i = fromColumn - 1; i >= toColumn; i--) {
+                if (!gameMatrix[fromRow][i]) {
+                    return false; // Ne peut pas traverser la terre
                 }
-                break;
             }
-            return returnValue;
-        }else if(d == 1){ // Le déplaement à droite
-           
-            for(int i = fromColumn +1; i <= toColumn; i++ ){
-                if(!gameMatrix[fromRow][i]) {
-                    returnValue = false;
-                    // i = toColumn + 1;
-                }    
-                break;            
-            }
-            return returnValue;
-        }else if(h == 1){ // Le déplacement vers le haut
-           
-            for(int i = fromRow -1; i <= toRow; i-- ){
-                if(!gameMatrix[i][fromColumn]) {
-                    returnValue = false;
-                    // i = toRow - 1;
+            return true;
+        } else if (d == 1) { // Déplacement à droite
+            for (int i = fromColumn + 1; i <= toColumn; i++) {
+                if (!gameMatrix[fromRow][i]) {
+                    return false; // Ne peut pas traverser la terre
                 }
-                break;
             }
-            return returnValue;
-        }else if(b == 1){
-           
-            for(int i = fromRow + 1; i <= toRow; i++ ){
-                if(!gameMatrix[i][fromColumn]) {
-                    returnValue = false;
-                    // i = toRow + 1;
+            return true;
+        } else if (h == 1) { // Déplacement vers le haut
+            for (int i = fromRow - 1; i >= toRow; i--) {
+                if (!gameMatrix[i][fromColumn]) {
+                    return false; // Ne peut pas traverser la terre
                 }
-                break;
             }
-            return returnValue;
+            return true;
+        } else if (b == 1) { // Déplacement vers le bas
+            for (int i = fromRow + 1; i <= toRow; i++) {
+                if (!gameMatrix[i][fromColumn]) {
+                    return false; // Ne peut pas traverser la terre
+                }
+            }
+            return true;
         }
-        return returnValue;
-    }
 
+        return false; // Si aucune condition n'est remplie
+    }
     public static void main(String[] args) {
         boolean[][] gameMatrix = {
                 { false, true, true, false, false, false },
