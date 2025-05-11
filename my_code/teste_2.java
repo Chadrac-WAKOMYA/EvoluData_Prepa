@@ -1,6 +1,6 @@
 package my_code;
 
-public class teste {
+public class teste_2 {
     public static double calculateFinalSpeed(double initialSpeed, int[] inclinations) {
         double finalSpeed = initialSpeed;
         for(int nbr : inclinations){
